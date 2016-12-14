@@ -1,0 +1,43 @@
+<div class="form-group">
+  <label for="coffeeOrder">Coffee Order</label>
+  {{input type="text" class="form-control" autofocus=true name="coffee" id="coffeeOrder" autofocus=true required=true pattern="[a-zA-Z\s]+"}}
+</div>
+<div class="form-group {{if isEmailAddressValid "has-success" "has-danger"}}" >
+  <label for="emailInput">Email</label>
+  {{input type="text" class=(if isEmailAddressValid "form-control form-control-success" "form-control form-control-danger")
+    value=emailAddress name="emailAddress" id="emailInput"
+    placeholder="dr@who.com" required=true aria-required="true" aria-invalid=isEmailAddressValid }}
+</div>
+<div class="radio">
+  <label>
+    <input type="radio" name="size" value="short">
+    Short
+  </label>
+</div>
+<div class="radio">
+  <label>
+    <input type="radio" name="size" value="tall" checked>
+    Tall
+  </label>
+</div>
+<div class="radio">
+  <label>
+    <input type="radio" name="size" value="grande">
+    Grande
+  </label>
+</div>
+<div class="form-group">
+  <label for="flavorShot">Flavor Shot</label>
+  <select name="flavor" id="flavorShot" class="form-control">
+    <option value="">None</option>
+    <option value="caramel">Caramel</option>
+    <option value="almond">Almond</option>
+    <option value="mocha">Mocha</option>
+  </select>
+</div>
+<div class="form-group">
+  <label for="strengthLevel">Caffeine Rating: {{strength}}x</label>
+  {{input type="range" class="form-control" value=strength name="strength" id="strengthLevel"}}
+</div>
+<button type="submit" class="btn btn-outline-primary btn-block">Submit</button>
+<button type="reset" class="btn btn-outline-secondary btn-block">Reset</button>

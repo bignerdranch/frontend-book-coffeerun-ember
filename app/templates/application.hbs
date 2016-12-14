@@ -1,0 +1,29 @@
+<section class="container">
+  <header>
+    <h1 class="display-1 text-xs-center text-xl-left">CoffeeRun</h1>
+  </header>
+  <main>
+    <div class="card">
+      <div class="card-header">
+        <h4>Order Form</h4>
+      </div>
+      <div class="card-block">
+        {{order-form submitForm=(action 'createOrder') existingOrder=order}}
+      </div>
+    </div>
+    {{#if model}}
+      <div class="card">
+        <div class="card-header">
+          <h4>Pending Orders:</h4>
+        </div>
+        <div class="card-block">
+          <div data-coffee-order="checklist">
+            {{#each model as |order| }}
+              {{coffee-order-row order=order deliverOrder=(action 'deliverOrder')}}
+            {{/each}}
+          </div>
+        </div>
+      </div>
+    {{/if}}
+  </main>
+</section>
