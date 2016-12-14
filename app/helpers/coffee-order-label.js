@@ -8,7 +8,7 @@ export function coffeeOrder(params) {
     let coffee = coffeeOrder.get('coffee');
     let emailAddress = coffeeOrder.get('emailAddress');
     let strength = coffeeOrder.get('strength');
-    return ` ${size} ${flavor} ${coffee}, (${emailAddress}) [${strength}x]`;
+    return `${size} ${flavor} ${coffee}, (${emailAddress}) [${strength}x]`;
   }
   return '';
 }
