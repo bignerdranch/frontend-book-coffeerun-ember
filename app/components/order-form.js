@@ -24,7 +24,7 @@ export default Ember.Component.extend({
   validations: {
     emailAddress: {
       format: {
-        fn: /.+@bignerdranch\.com$/ 
+        fn: /.+@bignerdranch\.com$/
       }
     }
   },
@@ -37,6 +37,7 @@ export default Ember.Component.extend({
       data[item.name] = item.value;
     });
     this.get('element').reset();
+    this.set('isEmailAddressValid', false);
     this.get('submitForm')(data);
   },
 });
