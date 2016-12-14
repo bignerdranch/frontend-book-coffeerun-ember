@@ -3,8 +3,12 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   tagName: 'form',
   strength: 10,
+  shouldValidateEmail: false,
   emailAddress: null,
   isEmailAddressValid: null,
+  emailIsValidStyle: Ember.computed('isEmailAddressValid', function() {
+    return this.get('isEmailAddressValid') ? "has-success" : "has-danger";
+  }),
   emailAddressChanged: Ember.observer('emailAddress', function() {
     let isValid = true;
     let testValue = this.get('emailAddress');
@@ -38,6 +42,12 @@ export default Ember.Component.extend({
     });
     this.get('element').reset();
     this.set('isEmailAddressValid', false);
+    this.set('shouldValidateEmail', false);
     this.get('submitForm')(data);
   },
+  actions: {
+    onEmailFocus(){
+      this.set('shouldValidateEmail', true);
+    }
+  }
 });
