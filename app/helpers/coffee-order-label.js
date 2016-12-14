@@ -2,18 +2,15 @@ import Ember from 'ember';
 
 export function coffeeOrder(params) {
   let coffeeOrder = params[0];
-  let description = '';
-
-  if(coffeeOrder) {
-    description = ' ' + coffeeOrder.get('size') + ' ';
-    if(coffeeOrder.get('flavor')) {
-      description += coffeeOrder.get('flavor') + ' ';
-    }
-    description += coffeeOrder.get('coffee') + ', ';
-    description += ' (' + coffeeOrder.get('emailAddress') + ')';
-    description += ' [' + coffeeOrder.get('strength') + 'x]';
+  if (coffeeOrder) {
+    let size = coffeeOrder.get('size');
+    let flavor = coffeeOrder.get('flavor');
+    let coffee = coffeeOrder.get('coffee');
+    let emailAddress = coffeeOrder.get('emailAddress');
+    let strength = coffeeOrder.get('strength');
+    return ` ${size} ${flavor} ${coffee}, (${emailAddress}) [${strength}x]`;
   }
-  return description;
+  return '';
 }
 
 export default Ember.Helper.helper(coffeeOrder);
