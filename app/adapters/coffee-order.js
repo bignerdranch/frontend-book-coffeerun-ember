@@ -16,14 +16,12 @@ export default ApplicationAdapter.extend({
     return Ember.String.pluralize(nonDasherized);
   },
   createRecord(store, type, snapshot) {
-    var data = {};
-    var url = this.buildURL(type.modelName, null, snapshot, 'createRecord');
-    // make emailAddress the main key
+    let url = this.buildURL(type.modelName, null, snapshot, 'createRecord');
     // object with all attriburtes as value
-    data = snapshot.attributes();
-    return this.ajax(url, "POST", { data: data });
+    return this.ajax(url, "POST", { data: snapshot.attributes() });
   },
-  deleteRecord: function(store, type, snapshot) {
+  deleteRecord(store, type, snapshot) {
+    // use email address as the id for the data, API expects email as primaryKey
     var id = snapshot.attributes().emailAddress;
     return this.ajax(this.buildURL(type.modelName, id, snapshot, 'deleteRecord'), "DELETE");
   }
