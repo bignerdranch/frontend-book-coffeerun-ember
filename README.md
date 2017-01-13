@@ -1,7 +1,8 @@
 # Coffeerun-ember
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This is an EmberJS version of BNR Guide: Front-End Web Development application for CoffeeRun.  This is a single app running Ember with Bootstrap v4-alpha. The application is an example of porting application patterns from pure JavaScript IIFE module patterns, constructors, prototype inheritance, Promises, and callback patterns.
+
+The port shows EmberJS' conventions for routes, controllers, components, adapters, serializers, helpers, and models.  These conventions will allow for scaling this application from a single form and listing display to a complex system of routes, components, and API integration to expand the CoffeeRun business to an food and beverage empire.
 
 ## Prerequisites
 
@@ -50,4 +51,3 @@ Specify what it takes to deploy your app.
 * Development Browser Extensions
   * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
   * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
-
