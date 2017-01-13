@@ -19,7 +19,7 @@
         <div class="card-block">
           <div data-coffee-order="checklist">
             {{#each model as |order| }}
-              {{coffee-order-row order=order deliverOrder=(action 'deliverOrder')}}
+              {{coffee-order-row order=order data-coffee-order="checkbox" deliverOrder=(action 'deliverOrder')}}
             {{/each}}
           </div>
         </div>
